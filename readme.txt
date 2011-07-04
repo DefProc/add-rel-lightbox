@@ -4,7 +4,7 @@ Version: 0.1
 Stable tag: 0.1
 Tags: lightbox, slimbox, image, images
 Requires at least: 
-Tested up to: 3.1.3
+Tested up to: 3.2
 
 Add rel="lightbox[this_page]" to &lt;a&gt; wrapped image links in the content, and include captions for lightbox/slimbox
 
