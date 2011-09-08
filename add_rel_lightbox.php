@@ -2,7 +2,7 @@
 /*
 Plugin Name: add_rel_lightbox
 Description: Add rel="lightbox[this_page]" to &lt;a&gt; wrapped image links in the content, and include captions for lightbox/slimbox
-Version: 0.1
+Version: 0.1.1
 Author: Patrick Fenner (Def-Proc.co.uk)
 Author URI: http://www.deferredprocrastination.co.uk/
 */
@@ -13,7 +13,7 @@ function add_rel_lightbox($content)
 	/* Find internal links */
 
 	//Check the page for link images direct to image (no trailing attributes)
-	$string = '/<a href="(.*?).(jpg|jpeg|png|gif|bmp|ico)"><img(.*?)class="(.*?)wp-image-(.*?)" \/><\/a>/i';
+	$string = '/<a href="(.*?).(jpg|jpeg|png|gif|bmp|ico|svg)"><img(.*?)class="(.*?)wp-image-(.*?)" \/><\/a>/i';
 	preg_match_all( $string, $content, $matches, PREG_SET_ORDER);
 
 	//Check which attachment is referenced

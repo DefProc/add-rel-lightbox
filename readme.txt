@@ -1,7 +1,7 @@
 === add-rel-lightbox ===
 Contributors: DefProc
-Version: 0.1
-Stable tag: 0.1
+Version: 0.1.1
+Stable tag: 0.1.1
 Tags: lightbox, slimbox, image, images
 Requires at least: 
 Tested up to: 3.2
@@ -36,6 +36,10 @@ Either upgrade automatically from your admin pages. Or if upgrading manually: de
 the new files across; then enable when completed.
 
 == Changelog ==
+
+= v 0.1.1 =
+
+* Added .svg support to image types
 
 = v 0.1 =
 
