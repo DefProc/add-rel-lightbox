@@ -1,12 +1,12 @@
 === add-rel-lightbox ===
 Contributors: DefProc
-Version: 0.1.1
-Stable tag: 0.1.1
+Version: 0.2
+Stable tag: 0.2
 Tags: lightbox, slimbox, image, images
-Requires at least: 
-Tested up to: 3.2
+Requires at least: 3
+Tested up to: 3.2.1
 
-Add rel="lightbox[this_page]" to &lt;a&gt; wrapped image links in the content, and include captions for lightbox/slimbox
+Add rel="lightbox" to &lt;a&gt; wrapped image links in the content and to [gallery] image links, and include captions for lightbox/slimbox
 
 == Description ==
 
@@ -15,6 +15,8 @@ WordPress plugin to automatically add rel="lightbox" attribute to link wrapped i
 This plugin requires lightbox or slimbox (or any lightbox-compatible image handler) to also be installed on your site, either as part of the theme, or via a plugin. If either lightbox, or add-rel-lightbox is not activated at any time, your site will revert gracefully to the standard "open image as new page".
 
 The plugin currently only works with images placed into posts using the "add media" dialogues, and will only apply to images that are in your media library. However, it will also *not* interfere with any images that have already have attributes applied to them.
+
+New for version 0.2, add-rel-lightbox now also works with the [gallery] shortcode, replacing the standard wordpress filter with an almost identical version, but with the shortcode added. note that you will have to use the [gallery link="file"] format, or select "Image File" when inserting the gallery for lighbox to work as expected. Galleries that link to the attachment page are unaffected by this plugin.
 
 In addition to applying rel="lightbox", this plugin will retrieve the media library caption for any images, and correctly escape any html entities, so that the caption is displayed as expected in the lightbox.
 
@@ -36,6 +38,10 @@ Either upgrade automatically from your admin pages. Or if upgrading manually: de
 the new files across; then enable when completed.
 
 == Changelog ==
+
+= v 0.2 =
+
+* Now also works with [gallery link="file"] shortcode. 
 
 = v 0.1.1 =
 

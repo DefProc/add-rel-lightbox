@@ -2,7 +2,7 @@
 /*
 Plugin Name: add_rel_lightbox
 Description: Add rel="lightbox[this_page]" to &lt;a&gt; wrapped image links in the content, and include captions for lightbox/slimbox
-Version: 0.2-development
+Version: 0.2
 Author: Patrick Fenner (Def-Proc.co.uk)
 Author URI: http://www.deferredprocrastination.co.uk/
 */
