@@ -1,5 +1,6 @@
 === add-rel-lightbox ===
 Contributors: DefProc
+Donate Link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sales@def-proc.co.uk&currency_code=GBP&no_shipping=1&item_name=Donation%20for%20add-rel-lightbox
 Version: 0.2
 Stable tag: 0.2
 Tags: lightbox, slimbox, image, images
@@ -53,3 +54,7 @@ Initial Release
 
 * Adds rel="lighbox[this_page]" to link wrapped images.
 * Adds lighbox caption from WordPress Media Library.
+
+== Upgrade Notice ==
+
+Now works with [gallery] shortcode.
