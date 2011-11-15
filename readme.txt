@@ -1,8 +1,8 @@
 === add-rel-lightbox ===
 Contributors: DefProc
 Donate Link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sales@def-proc.co.uk&currency_code=GBP&no_shipping=1&item_name=Donation%20for%20add-rel-lightbox
-Version: 0.2
-Stable tag: 0.2
+Version: 0.3
+Stable tag: 0.3
 Tags: lightbox, slimbox, image, images
 Requires at least: 3
 Tested up to: 3.2.1
@@ -17,7 +17,7 @@ This plugin requires lightbox or slimbox (or any lightbox-compatible image handl
 
 The plugin currently only works with images placed into posts using the "add media" dialogues, and will only apply to images that are in your media library. However, it will also *not* interfere with any images that have already have attributes applied to them.
 
-New for version 0.2, add-rel-lightbox now also works with the [gallery] shortcode, replacing the standard wordpress filter with an almost identical version, but with the shortcode added. note that you will have to use the [gallery link="file"] format, or select "Image File" when inserting the gallery for lighbox to work as expected. Galleries that link to the attachment page are unaffected by this plugin.
+add-rel-lightbox also works with the [gallery] shortcode, adding the rel="lightbox" attribute to links created by it. Note that you will have to use the `[gallery link="file"]` format, or select "Image File" when inserting the gallery for lighbox to work as expected. Galleries that link to the attachment page are unaffected by this plugin.
 
 In addition to applying rel="lightbox", this plugin will retrieve the media library caption for any images, and correctly escape any html entities, so that the caption is displayed as expected in the lightbox.
 
@@ -31,7 +31,7 @@ Either Install the plugin by searching for "add-rel-lightbox" from the plugin pa
 1. Copy the plugin folder into the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
-To function, you will also need (lightbox/slimbox/a lighbox clone) installed and activated.
+To function, you will also need (lightbox/slimbox/lighbox clone) installed and activated.
 
 To Upgrade:
 
@@ -39,6 +39,12 @@ Either upgrade automatically from your admin pages. Or if upgrading manually: de
 the new files across; then enable when completed.
 
 == Changelog ==
+
+= v 0.3 = 
+
+* Adjusted the filter hook priority so it uses the core [gallery] shortcode function.
+* Also works with `the_extract();` e.g. on front page and category listings.
+* All images and gallery form one linked gallery per post/page.
 
 = v 0.2 =
 
@@ -52,9 +58,9 @@ the new files across; then enable when completed.
 
 Initial Release
 
-* Adds rel="lighbox[this_page]" to link wrapped images.
+* Adds rel="lightbox[this_page]" to link wrapped images.
 * Adds lighbox caption from WordPress Media Library.
 
 == Upgrade Notice ==
 
-Now works with [gallery] shortcode.
+Revised [gallery] shortcode integration.
