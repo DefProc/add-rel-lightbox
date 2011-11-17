@@ -43,8 +43,10 @@ the new files across; then enable when completed.
 = v 0.3 = 
 
 * Adjusted the filter hook priority so it uses the core [gallery] shortcode function.
-* Also works with `the_extract();` e.g. on front page and category listings.
+* Also works with `the_extract()` e.g. on front page and category listings.
 * All images and gallery form one linked gallery per post/page.
+
+Thanks to Jason Spatola.
 
 = v 0.2 =
 
