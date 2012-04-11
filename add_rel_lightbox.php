@@ -38,10 +38,11 @@ function add_rel_lightbox($content)
 					if (preg_match("/wp-image-([0-9]+?)/i", $a->class, $image_no)) {
 						$a->title = esc_attr( get_post($image_no[1])->post_content );
 					}
-					elseif (!empty($images)) {
+					elseif ( !empty($images) && preg_match("/attachment-thumbnail/i", $img->class) ) {
 						foreach ($images as $image_id => $image) {
 							if ("$image->post_title" == "$img->title") {
 								$a->title = esc_attr($image->post_content);
+								break;
 							}
 						}
 					}
