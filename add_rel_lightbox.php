@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: add_rel_lightbox
+Plugin Name: add-rel-lightbox
 Description: Add rel="lightbox[this_page]" to &lt;a&gt; wrapped image links in the content, and include captions for lightbox/slimbox
 Version: 0.3
 Author: Patrick Fenner (Def-Proc.co.uk)
