@@ -22,24 +22,25 @@ function add_rel_lightbox($content)
 	global $post;
 	$id = $post->ID;
 
+	require_once('simple_html_dom.php');
+
+	$html = str_get_html($content);
+
 	/* Find internal image links */
 
-	// Check the page for link images direct to image (no trailing attributes)
-	$regex_search = '/<a href="(.*?).(jpg|jpeg|png|gif|bmp|ico|svg)"><img(.*?)class="(.*?)wp-image-(.*?)" \/><\/a>/i';
-	preg_match_all($regex_search, $content, $matches, PREG_SET_ORDER);
-
-	// Check which image is referenced
-	foreach ($matches as $val)
-	{
-		$caption = '';
-
-		$image = get_post($val[5]);
-		$caption = esc_attr( $image->post_content );
-
-		//Replace the instance with the lightbox and title(caption) references. Won't fail if caption is empty.
-		$string = '<a href="' . $val[1] . '.' . $val[2] . '"><img' . $val[3] . 'class="' . $val[4] . 'wp-image-' . $val[5] . '" /></a>';
-		$replace = '<a href="' . $val[1] . '.' . $val[2] . '" rel="lightbox[post-' . $id . ']" title="' . $caption . '"><img' . $val[3] . 'class="' . $val[4] . 'wp-image-' . $val[5] . '" /></a>';
-		$content = str_replace($string, $replace, $content);
+	if (!empty($content)) {
+		foreach($html->find('a') as $a) {
+			foreach($a->find('img') as $img) {
+				if ( preg_match("/(.*?).(jpg|jpeg|png|gif|bmp|ico|svg)/i", $a->href) && !preg_match("/lightbox/i", $a->rel) ) {
+					$img_no = "";
+					if (preg_match("/wp-image-([0-9]+?)/i", $a->class, $img_no)) {
+						$a->title = esc_attr( get_post($img_no[1])->post_content );
+					}
+					$a->rel = $a->rel . "lightbox[post-" . $id . "]";
+				}
+			}
+		}
+		$content = $html->save();
 	}
 
 	/* Find links created by [gallery] shortcode */
