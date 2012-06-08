@@ -22,7 +22,9 @@ function add_rel_lightbox($content)
 	global $post;
 	$id = $post->ID;
 
-	require_once('simple_html_dom.php');
+	if ( !function_exists('str_get_html') ) {
+		require_once('simple_html_dom.php');
+	}
 
 	$html = str_get_html($content);
 
@@ -39,7 +41,7 @@ function add_rel_lightbox($content)
 			foreach($a->find('img') as $img) {
 				// Check the link points to an image, and no rel="lightbox" is already applied.
 				// Note: this also means that adding rel="nolightbox" will skip that link.
-				if ( preg_match("/(.*?).(jpg|jpeg|png|gif|bmp|ico|svg)/i", $a->href) && !preg_match("/lightbox/i", $a->rel) ) {
+				if ( preg_match("/\.(jpg|jpeg|png|gif|bmp|ico|svg)$/i", $a->href) && !preg_match("/lightbox/i", $a->rel) ) {
 					$image_no = "";
 					// If it's a solo image from an internal source…
 					if (preg_match("/wp-image-([0-9]+?)/i", $a->class, $image_no)) {
@@ -59,7 +61,7 @@ function add_rel_lightbox($content)
 					}
 
 					// Then add the rel="lightbox[post-id]" to make it open with lightbox.
-					$a->rel = $a->rel . "lightbox[post-" . $id . "]";
+					$a->rel = "lightbox[post-" . $id . "]";
 				}
 			}
 		}
