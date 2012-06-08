@@ -1,11 +1,11 @@
 === add-rel-lightbox ===
 Contributors: DefProc
 Donate Link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sales@def-proc.co.uk&currency_code=GBP&no_shipping=1&item_name=Donation%20for%20add-rel-lightbox
-Version: 0.3
-Stable tag: 0.3
+Version: 0.4
+Stable tag: 0.4
 Tags: lightbox, slimbox, image, images
 Requires at least: 3
-Tested up to: 3.2.1
+Tested up to: 3.2.2
 
 Add rel="lightbox" to &lt;a&gt; wrapped image links in the content and to [gallery] image links, and include captions for lightbox/slimbox
 
@@ -39,6 +39,10 @@ Either upgrade automatically from your admin pages. Or if upgrading manually: de
 the new files across; then enable when completed.
 
 == Changelog ==
+
+= v 0.4 =
+
+* changed from regex to DOM parsing using [Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/)
 
 = v 0.3 = 
 
