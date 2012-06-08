@@ -26,7 +26,10 @@ function add_rel_lightbox($content)
 		require_once('simple_html_dom.php');
 	}
 
-	$html = str_get_html($content);
+	$html = new simple_html_dom();
+
+	// Load HTML from a string (change tags to lowercase, but don't strip newlines).
+	$html->load($content, true, false);
 
 	/* Find internal image links */
 
@@ -68,6 +71,10 @@ function add_rel_lightbox($content)
 
 		// Save the content if it's changed.
 		$content = $html->save();
+		// And clear up memory.
+		$html->clear(); 
+		unset($html);
+
 	}
 
 	// And return the content back to where it's called from.
