@@ -2,7 +2,7 @@
 /*
 Plugin Name: add-rel-lightbox
 Description: Add rel="lightbox[this_page]" to &lt;a&gt; wrapped image links in the content, and include captions for lightbox/slimbox
-Version: 0.4
+Version: 0.4.1
 Author: Patrick Fenner (Def-Proc.co.uk)
 Author URI: http://www.deferredprocrastination.co.uk/
 */
@@ -26,7 +26,8 @@ function add_rel_lightbox($content)
 		require_once('simple_html_dom.php');
 	}
 
-	$html = new simple_html_dom();
+	// set $forceTagsClosed=false to prevent newline stripping in multiline tags bug
+	$html = new simple_html_dom(null, true, false);
 
 	// Load HTML from a string (change tags to lowercase, but don't strip newlines).
 	$html->load($content, true, false);
